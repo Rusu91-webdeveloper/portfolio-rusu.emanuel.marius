@@ -34,15 +34,23 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     if (savedTheme) {
       return savedTheme;
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    // Default to dark mode if no preference is saved
+    return "dark";
   });
 
   useEffect(() => {
     // Update document class and localStorage when theme changes
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
+
+    // Also set the meta theme-color for mobile browsers
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute(
+        "content",
+        theme === "dark" ? "#1f2937" : "#ffffff"
+      );
+    }
   }, [theme]);
 
   const toggleTheme = () => {
