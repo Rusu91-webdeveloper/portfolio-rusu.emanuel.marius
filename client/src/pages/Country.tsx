@@ -76,17 +76,17 @@ const countryData: Record<string, CountryInfo> = {
     flag: "/flags/germany.png",
     timeline: [
       {
-        date: "2017 - 2020",
+        date: "2017 - 2023",
         title: "Machine Operator at Procter & Gamble",
         description:
           "Managed and operated sophisticated manufacturing equipment in one of the world's leading consumer goods companies. Developed expertise in industrial automation and process optimization.",
         icon: <FiTool className="w-6 h-6" />,
       },
       {
-        date: "2020 - 2024",
-        title: "Full Stack Development Bootcamp & Career Transition",
+        date: "2023 - 2025",
+        title: "Full Stack Development",
         description:
-          "Completed an intensive full-stack development program at Digital Career Institute. Mastered modern web technologies including React, Node.js, and cloud platforms. Transitioned into software development career.",
+          "Focused on full-stack development using modern web technologies including React, Node.js, and cloud platforms. Building production-grade applications and solidifying software engineering practices.",
         icon: <FiCode className="w-6 h-6" />,
       },
     ],
@@ -108,26 +108,6 @@ const countryData: Record<string, CountryInfo> = {
         description:
           "Completed advanced military training programs, specializing in tactical operations and team leadership. Earned multiple commendations for outstanding service and dedication.",
         icon: <FiAward className="w-6 h-6" />,
-      },
-    ],
-  },
-  "dr-congo": {
-    name: "DR Congo",
-    flag: "/flags/dr-congo.png",
-    timeline: [
-      {
-        date: "2012 - 2013",
-        title: "Military Training Specialist",
-        description:
-          "Served as a specialized military trainer in DR Congo, contributing to peace-keeping efforts by training local forces in advanced tactical operations and security protocols.",
-        icon: <FiTarget className="w-6 h-6" />,
-      },
-      {
-        date: "2013",
-        title: "Peace-Keeping Operations",
-        description:
-          "Participated in critical peace-keeping initiatives, focusing on building local capacity for maintaining security and stability in challenging regions.",
-        icon: <FiShield className="w-6 h-6" />,
       },
     ],
   },

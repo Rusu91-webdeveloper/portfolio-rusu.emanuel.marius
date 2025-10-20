@@ -36,16 +36,6 @@ const COUNTRIES_DATA = [
     description: "French Foreign Legion service",
   },
   {
-    name: "DR Congo",
-    id: "dr-congo",
-    lat: -4.0383,
-    lng: 21.7587,
-    color: "#FF44FF",
-    flag: "/flags/dr-congo.png",
-    years: "2012 - 2013",
-    description: "Military training specialist & peace-keeping operations",
-  },
-  {
     name: "UK-London",
     id: "uk-london",
     lat: 51.5074,
@@ -62,8 +52,9 @@ const COUNTRIES_DATA = [
     lng: 10.4515,
     color: "#FF4444",
     flag: "/flags/germany.png",
-    years: "2017 - 2024",
-    description: "Machine operator at P&G & full-stack development bootcamp",
+    years: "2017 - 2025",
+    description:
+      "2017-2023: Machine Operator at P&G; 2023-2025: Full-Stack Development",
   },
 ];
 
@@ -122,8 +113,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-4 max-w-7xl mx-auto">
-        <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
+      <section className="flex flex-wrap justify-center gap-8 px-4 max-w-7xl mx-auto">
+        <div className="w-full sm:w-80 lg:w-72 rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
           <div className="mb-4 flex items-center gap-3">
             <div className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg group-hover:bg-blue-200 dark:group-hover:bg-blue-900 transition-colors">
               <FiMonitor className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -138,7 +129,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
+        <div className="w-full sm:w-80 lg:w-72 rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
           <div className="mb-4 flex items-center gap-3">
             <div className="p-2 bg-green-100 dark:bg-green-900/50 rounded-lg group-hover:bg-green-200 dark:group-hover:bg-green-900 transition-colors">
               <FiServer className="w-6 h-6 text-green-600 dark:text-green-400" />
@@ -153,7 +144,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
+        <div className="w-full sm:w-80 lg:w-72 rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
           <div className="mb-4 flex items-center gap-3">
             <div className="p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-lg group-hover:bg-yellow-200 dark:group-hover:bg-yellow-900 transition-colors">
               <FiDatabase className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
@@ -168,19 +159,48 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group">
-          <div className="mb-4 flex items-center gap-3">
-            <div className="p-2 bg-purple-100 dark:bg-purple-900/50 rounded-lg group-hover:bg-purple-200 dark:group-hover:bg-purple-900 transition-colors">
-              <FiCpu className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              AI Implementation
-            </h3>
+        <div className="w-full relative rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-800/30 dark:to-pink-800/30 p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 dark:hover:border-purple-500">
+          {/* Animated background gradient */}
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-400/10 via-pink-400/10 to-violet-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+
+          {/* Glowing ring effect */}
+          <div className="absolute inset-0 rounded-xl ring-2 ring-purple-300/50 dark:ring-purple-400/50 group-hover:ring-purple-400/80 dark:group-hover:ring-purple-300/80 transition-all duration-500 shadow-purple-200/50 dark:shadow-purple-400/50"></div>
+
+          {/* Featured badge */}
+          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-bounce">
+            FEATURED
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
-            Integrating cutting-edge AI technologies and machine learning models
-            to create intelligent, adaptive solutions.
-          </p>
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
+                <FiCpu className="w-8 h-8 text-white animate-pulse" />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+                  AI Implementation
+                </h3>
+                <p className="text-sm text-purple-600/80 dark:text-purple-400/80 font-medium">
+                  Cutting-edge technology integration
+                </p>
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="text-gray-700 dark:text-gray-200 font-medium leading-relaxed text-lg">
+                Integrating cutting-edge AI technologies and machine learning
+                models to create intelligent, adaptive solutions that
+                revolutionize user experiences. Specializing in RAG systems, MCP
+                servers, and generative AI applications.
+              </p>
+            </div>
+
+            {/* Enhanced sparkle effects */}
+            <div className="absolute top-4 right-4 w-3 h-3 bg-purple-400 rounded-full animate-ping"></div>
+            <div className="absolute bottom-4 right-12 w-2 h-2 bg-pink-400 rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute top-8 right-20 w-2 h-2 bg-violet-400 rounded-full animate-bounce delay-500"></div>
+            <div className="absolute top-12 right-8 w-1.5 h-1.5 bg-purple-300 rounded-full animate-ping delay-700"></div>
+            <div className="absolute bottom-8 right-16 w-1 h-1 bg-pink-300 rounded-full animate-pulse delay-300"></div>
+          </div>
         </div>
       </section>
 

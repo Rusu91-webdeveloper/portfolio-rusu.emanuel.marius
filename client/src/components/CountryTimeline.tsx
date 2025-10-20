@@ -42,12 +42,12 @@ const CountryTimeline: React.FC<CountryTimelineProps> = ({ countries }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+    <div className="flex flex-wrap justify-center gap-4 mb-8">
       {countries.map((country) => (
         <div
           key={country.id}
           onClick={() => handleCountryClick(country.id)}
-          className="group relative cursor-pointer bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-l-4 overflow-hidden"
+          className="w-full sm:w-80 lg:w-64 group relative cursor-pointer bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-l-4 overflow-hidden"
           style={{ borderLeftColor: country.color }}>
           {/* Flag and Country Name */}
           <div className="flex items-center gap-3 mb-3">

@@ -15,7 +15,8 @@ const HIGHLIGHTED_COUNTRIES = [
     color: "#FF4444",
     flag: "/flags/germany.png",
     years: "2017 - 2025",
-    description: "Current residence & work location",
+    description:
+      "2017-2023: Machine Operator; 2023-2025: Full-Stack Development",
   },
   {
     name: "Romania",
@@ -46,16 +47,6 @@ const HIGHLIGHTED_COUNTRIES = [
     flag: "/flags/france.png",
     years: "2009 - 2011",
     description: "Early career experience",
-  },
-  {
-    name: "DR Congo",
-    id: "dr-congo",
-    lat: -4.0383,
-    lng: 21.7587,
-    color: "#FF44FF",
-    flag: "/flags/dr-congo.png",
-    years: "2023 (3 months)",
-    description: "International project experience",
   },
 ];
 
