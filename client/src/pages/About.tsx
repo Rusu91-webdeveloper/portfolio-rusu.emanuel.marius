@@ -41,13 +41,53 @@ export default function About() {
             someone sees to the functionality behind it, and explore how AI can
             make products more useful.
           </p>
+          <div className="about-actions">
+            <a
+              className="text-link"
+              href="/Emanuel-Rusu-CV-2026.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              VIEW MY RESUME ↗
+            </a>
+            <a className="text-link" href="#education">
+              EDUCATION &amp; CERTIFICATE ↓
+            </a>
+          </div>
+        </div>
+      </section>
+      <section
+        className="education-section"
+        id="education"
+        aria-labelledby="education-title"
+      >
+        <div>
+          <p className="eyebrow">EDUCATION / CREDENTIALS</p>
+          <h2 id="education-title">
+            Where I learned<span>.</span>
+          </h2>
+        </div>
+        <div className="education-detail">
+          <p className="education-index">01 / DIGITAL CAREER INSTITUTE</p>
+          <h3>Full-Stack Web Development</h3>
+          <p>
+            Training in the MERN stack, including React, Node.js, Express,
+            MongoDB, and a final team project.
+          </p>
           <a
-            className="text-link"
-            href="/Emanuel-Rusu-CV-2026.pdf"
+            className="certificate-link"
+            href="/Rusu-Emanuel.certificate.pdf"
             target="_blank"
             rel="noreferrer"
+            aria-label="View DCI training confirmation, PDF (opens in a new tab)"
           >
-            VIEW MY RESUME ↗
+            <span>
+              <strong>DCI training confirmation</strong>
+              <small>PDF · English &amp; German</small>
+            </span>
+            <span className="certificate-arrow" aria-hidden="true">
+              ↗
+            </span>
           </a>
         </div>
       </section>
