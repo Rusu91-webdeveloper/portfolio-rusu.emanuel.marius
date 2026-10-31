@@ -1,95 +1,22 @@
-# Emanuel Rusu - Full-Stack Developer Portfolio
+# Emanuel Rusu — developer portfolio
 
-A modern, interactive portfolio showcasing my journey as a full-stack developer with international experience and AI integration expertise.
+A React, TypeScript and Vite portfolio presenting custom-domain MVPs, FitForge and earlier study work.
 
-## 🌟 Features
-
-- **Interactive 3D Globe** - Explore my international journey across 5 countries
-- **Country Timeline** - Detailed timeline of experiences from 1991 to present
-- **Project Showcase** - Bootcamp projects and real-world MVP developments
-- **Modern UI/UX** - Responsive design with dark/light mode
-- **AI Integration** - Showcasing modern AI technologies and implementations
-
-## 🚀 Tech Stack
-
-- **Frontend**: React, TypeScript, Vite
-- **3D Graphics**: Three.js, React Three Fiber
-- **Styling**: Tailwind CSS, Framer Motion
-- **Icons**: React Icons, Tabler Icons
-- **Animation**: GSAP, React Type Animation
-
-## 🌍 International Journey
-
-- **Romania** (1991-2009, 2025-Present) - Birth country & current location
-- **France** (2009-2012) - French Foreign Legion service
-- **DR Congo** (2012-2013) - Military training & peace-keeping
-- **UK-London** (2013-2017) - Close protection operative
-- **Germany** (2017-2024) - Machine operator & development bootcamp
-
-## 🛠️ Current Projects
-
-- **Techtots.ro** - Educational platform development
-- **Business MVPs** - Helping various businesses create minimum viable products
-- **AI Integration** - Implementing cutting-edge AI solutions
-
-## 📱 Live Demo
-
-[View Live Portfolio](https://your-vercel-url.vercel.app)
-
-## 🏃‍♂️ Quick Start
+## Run locally
 
 ```bash
-# Clone the repository
-git clone https://github.com/Rusu91-webdeveloper/portfolio-rusu.emanuel.marius.git
-
-# Navigate to client directory
-cd portfolio-rusu.emanuel.marius/client
-
-# Install dependencies
-npm install
-
-# Start development server
+cd client
+npm ci
 npm run dev
-
-# Build for production
-npm run build
 ```
 
-## 📁 Project Structure
+Run `npm run build` in `client` to type-check and create the production build. Run `npm run lint` to check the TypeScript and React source.
 
-```
-portfolio/
-├── client/                 # React frontend application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/         # Page components
-│   │   ├── data/          # Static data files
-│   │   ├── hooks/         # Custom React hooks
-│   │   └── types/         # TypeScript type definitions
-│   ├── public/            # Static assets
-│   └── package.json       # Dependencies and scripts
-├── PLANNING.md            # Project architecture and goals
-└── TASK.md               # Development tasks and progress
-```
+## Updating projects
 
-## 🎯 Key Sections
+- Edit `client/src/data/showcase.ts` for the custom-domain MVPs, FitForge and supporting deployments.
+- Edit `client/src/data/projects.user.ts` for the study archive. The `demoUnavailable` flag hides a demo link while preserving its URL when a deployment is down.
+- Project domains were checked against the accessible Vercel team on 31 October 2026; review the inventory and descriptions as projects change. Staging and non-production deployments are listed without public links.
+- Contact details are in `client/src/pages/Contact.tsx` and the footer. The email link opens the visitor's email application; there is no contact form backend.
 
-- **Home** - Interactive introduction with 3D globe
-- **About** - Professional background and skills
-- **Projects** - Bootcamp and real-world projects
-- **MVP Showcase** - Business project highlights
-- **Contact** - Get in touch form
-
-## 🚀 Deployment
-
-This portfolio is deployed on Vercel and can be easily deployed to any static hosting platform.
-
-## 📧 Contact
-
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn]
-- **GitHub**: [Your GitHub]
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+The app uses client-side routes. Hosting must serve `index.html` for those routes on direct visits and refreshes.

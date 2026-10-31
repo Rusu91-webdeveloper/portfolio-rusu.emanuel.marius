@@ -1,31 +1,31 @@
-import { ReactNode } from "react";
-import { AnimatePresence } from "framer-motion";
+import { ReactNode, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Background3D from "../three/Background3D";
-import PageTransition from "../transitions/PageTransition";
-import CustomCursor from "../effects/CustomCursor";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+export default function Layout({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      "/": "Emanuel Rusu — Full-stack developer",
+      "/mvp-showcase": "Work — Emanuel Rusu",
+      "/projects": "Study archive — Emanuel Rusu",
+      "/about": "About — Emanuel Rusu",
+      "/contact": "Contact — Emanuel Rusu",
+    };
+    document.title = titles[pathname] ?? "Emanuel Rusu — Full-stack developer";
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
-    <div className="relative flex min-h-screen flex-col">
-      <CustomCursor />
-      <Background3D />
+    <div className="site-shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <main className="flex-1 py-8">
-        <div className="container mx-auto px-4">
-          <AnimatePresence mode="wait">
-            <PageTransition>{children}</PageTransition>
-          </AnimatePresence>
-        </div>
+      <main id="main" tabIndex={-1}>
+        {children}
       </main>
       <Footer />
     </div>
   );
-};
-
-export default Layout;
+}

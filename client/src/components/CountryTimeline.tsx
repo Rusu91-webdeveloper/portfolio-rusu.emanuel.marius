@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FiMapPin, FiCalendar } from "react-icons/fi";
+import { FiCalendar } from "react-icons/fi";
 
 interface Country {
   name: string;

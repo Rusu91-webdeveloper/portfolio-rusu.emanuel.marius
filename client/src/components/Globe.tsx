@@ -1,5 +1,5 @@
 import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
@@ -57,9 +57,8 @@ const CountryMarker: React.FC<{
   name: string;
   flag: string;
   onClick: () => void;
-}> = ({ position, color, name, flag, onClick }) => {
+}> = ({ position, color, name, onClick }) => {
   const [hovered, setHovered] = useState(false);
-  const { camera } = useThree();
   const markerRef = useRef<THREE.Mesh>(null);
 
   // Update marker size on hover

@@ -82,6 +82,8 @@ export const userProjects: Project[] = [
     imageUrl: "/project6.png",
     githubUrl: "https://github.com/Rusu91-webdeveloper/Nexus-Guest",
     liveUrl: "https://nexus-guest.vercel.app/",
+    // Returned HTTP 500 when checked on 31 October 2026.
+    demoUnavailable: true,
     category: "frontend",
     featured: true,
     createdAt: new Date().toISOString(),

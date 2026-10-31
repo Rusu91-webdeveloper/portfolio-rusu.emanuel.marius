@@ -10,7 +10,6 @@ import {
   FiTool,
   FiCode,
   FiUsers,
-  FiTarget,
 } from "react-icons/fi";
 
 // Country data type
@@ -133,7 +132,7 @@ const countryData: Record<string, CountryInfo> = {
   },
 };
 
-const TimelineEvent: React.FC<{ event: TimelineEvent; index: number }> = ({
+const TimelineEventCard: React.FC<{ event: TimelineEvent; index: number }> = ({
   event,
   index,
 }) => {
@@ -260,7 +259,7 @@ const CountryPage: React.FC = () => {
       {country.timeline ? (
         <div className="space-y-6">
           {country.timeline.map((event, index) => (
-            <TimelineEvent
+            <TimelineEventCard
               key={index}
               event={event}
               index={index}
