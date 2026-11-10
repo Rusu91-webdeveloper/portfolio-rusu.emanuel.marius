@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import { I18nProvider } from "./i18n/I18nContext";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -12,38 +13,40 @@ import RealProjects from "./pages/RealProjects";
 const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ThemeProvider>
-        <Router>
-          <Layout>
-            <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
-              <Route
-                path="/about"
-                element={<About />}
-              />
-              <Route
-                path="/projects"
-                element={<Projects />}
-              />
-              <Route
-                path="/mvp-showcase"
-                element={<RealProjects />}
-              />
-              <Route
-                path="/contact"
-                element={<Contact />}
-              />
-              <Route
-                path="/country/:countryId"
-                element={<CountryPage />}
-              />
-            </Routes>
-          </Layout>
-        </Router>
-      </ThemeProvider>
+      <I18nProvider>
+        <ThemeProvider>
+          <Router>
+            <Layout>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/about"
+                  element={<About />}
+                />
+                <Route
+                  path="/projects"
+                  element={<Projects />}
+                />
+                <Route
+                  path="/mvp-showcase"
+                  element={<RealProjects />}
+                />
+                <Route
+                  path="/contact"
+                  element={<Contact />}
+                />
+                <Route
+                  path="/country/:countryId"
+                  element={<CountryPage />}
+                />
+              </Routes>
+            </Layout>
+          </Router>
+        </ThemeProvider>
+      </I18nProvider>
     </Suspense>
   );
 };

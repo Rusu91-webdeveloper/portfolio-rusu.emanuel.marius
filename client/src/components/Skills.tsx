@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useI18n } from "../i18n/I18nContext";
 
 interface SkillCategory {
-  name: string;
+  name: "Frontend" | "Backend" | "AI & Cloud" | "Tools & Methods";
   skills: string[];
   color: string;
 }
 
 interface Language {
-  name: string;
+  name: "Romanian" | "English" | "German";
   proficiency: number;
   flag: string;
 }
@@ -70,6 +71,7 @@ const languages: Language[] = [
 ];
 
 const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => {
+  const { t } = useI18n();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -79,7 +81,7 @@ const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => {
       <h3
         className="text-xl font-bold mb-4 text-white"
         style={{ color: category.color }}>
-        {category.name}
+        {t(`skills.${category.name}`)}
       </h3>
       <div className="flex flex-wrap gap-2">
         {category.skills.map((skill, index) => (
@@ -98,6 +100,8 @@ const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => {
 };
 
 const LanguageBar: React.FC<{ language: Language }> = ({ language }) => {
+  const { t } = useI18n();
+  const label = t(`skills.${language.name}`);
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -106,10 +110,10 @@ const LanguageBar: React.FC<{ language: Language }> = ({ language }) => {
       <div className="flex items-center gap-3 mb-2">
         <img
           src={language.flag}
-          alt={`${language.name} flag`}
+          alt={t("skills.flagAlt", { name: label })}
           className="w-6 h-6 rounded-full"
         />
-        <span className="text-white">{language.name}</span>
+        <span className="text-white">{label}</span>
       </div>
       <div className="h-2 bg-white/20 rounded-full overflow-hidden">
         <motion.div
@@ -124,6 +128,7 @@ const LanguageBar: React.FC<{ language: Language }> = ({ language }) => {
 };
 
 const Skills: React.FC = () => {
+  const { t } = useI18n();
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20">
       <div className="container mx-auto px-4">
@@ -131,7 +136,7 @@ const Skills: React.FC = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-white mb-12 text-center">
-          Skills & Languages
+          {t("skills.heading")}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -149,7 +154,7 @@ const Skills: React.FC = () => {
           transition={{ delay: 0.5 }}
           className="max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Languages
+            {t("skills.languagesHeading")}
           </h3>
           {languages.map((language) => (
             <LanguageBar

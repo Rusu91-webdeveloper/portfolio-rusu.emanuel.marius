@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -11,8 +11,31 @@ import {
   FiCode,
   FiUsers,
 } from "react-icons/fi";
+import { useI18n } from "../i18n/I18nContext";
+import { isCountryId } from "../i18n/translations";
 
-// Country data type
+const countryIcons: Record<string, React.ReactNode[]> = {
+  romania: [
+    <FiCalendar className="w-6 h-6" key="cal" />,
+    <FiBook className="w-6 h-6" key="book" />,
+    <FiMapPin className="w-6 h-6" key="pin" />,
+    <FiAward className="w-6 h-6" key="award" />,
+    <FiCode className="w-6 h-6" key="code" />,
+  ],
+  germany: [
+    <FiTool className="w-6 h-6" key="tool" />,
+    <FiCode className="w-6 h-6" key="code" />,
+  ],
+  france: [
+    <FiShield className="w-6 h-6" key="shield" />,
+    <FiAward className="w-6 h-6" key="award" />,
+  ],
+  "uk-london": [
+    <FiShield className="w-6 h-6" key="shield" />,
+    <FiUsers className="w-6 h-6" key="users" />,
+  ],
+};
+
 interface TimelineEvent {
   date: string;
   title: string;
@@ -20,122 +43,11 @@ interface TimelineEvent {
   icon: React.ReactNode;
 }
 
-interface CountryInfo {
-  name: string;
-  flag: string;
-  history?: string;
-  timeline?: TimelineEvent[];
-}
-
-// Country timeline data - chronologically accurate
-const countryData: Record<string, CountryInfo> = {
-  romania: {
-    name: "Romania",
-    flag: "/flags/romania.png",
-    timeline: [
-      {
-        date: "August 3, 1991",
-        title: "Born in Romania",
-        description:
-          "Started my journey in this beautiful country, beginning a life full of opportunities and adventures.",
-        icon: <FiCalendar className="w-6 h-6" />,
-      },
-      {
-        date: "1997 - 2005",
-        title: "Primary School Education",
-        description:
-          "Attended primary school, where I discovered my passion for learning and technology.",
-        icon: <FiBook className="w-6 h-6" />,
-      },
-      {
-        date: "2005 - 2009",
-        title: "High School Years",
-        description:
-          "Studied at high school, focusing on mathematics and computer science, laying the foundation for my future career.",
-        icon: <FiMapPin className="w-6 h-6" />,
-      },
-      {
-        date: "2009",
-        title: "Abitur Achievement",
-        description:
-          "Successfully completed my Abitur, marking a significant milestone in my academic journey and opening doors to higher education.",
-        icon: <FiAward className="w-6 h-6" />,
-      },
-      {
-        date: "2025 - Present",
-        title: "Return to Romania - Techtots.ro & Business MVP Development",
-        description:
-          "Moved back to Romania to develop Techtots.ro platform and help various businesses create MVPs. Working on cutting-edge web applications and AI integration solutions.",
-        icon: <FiCode className="w-6 h-6" />,
-      },
-    ],
-  },
-  germany: {
-    name: "Germany",
-    flag: "/flags/germany.png",
-    timeline: [
-      {
-        date: "2017 - 2023",
-        title: "Machine Operator at Procter & Gamble",
-        description:
-          "Managed and operated sophisticated manufacturing equipment in one of the world's leading consumer goods companies. Developed expertise in industrial automation and process optimization.",
-        icon: <FiTool className="w-6 h-6" />,
-      },
-      {
-        date: "2023 - 2025",
-        title: "Full Stack Development",
-        description:
-          "Focused on full-stack development using modern web technologies including React, Node.js, and cloud platforms. Building production-grade applications and solidifying software engineering practices.",
-        icon: <FiCode className="w-6 h-6" />,
-      },
-    ],
-  },
-  france: {
-    name: "France",
-    flag: "/flags/france.png",
-    timeline: [
-      {
-        date: "2009 - 2012",
-        title: "French Foreign Legion Service",
-        description:
-          "Served in the prestigious French Foreign Legion, developing exceptional discipline, leadership skills, and international experience. Participated in specialized training and operations.",
-        icon: <FiShield className="w-6 h-6" />,
-      },
-      {
-        date: "2010 - 2012",
-        title: "Advanced Military Training",
-        description:
-          "Completed advanced military training programs, specializing in tactical operations and team leadership. Earned multiple commendations for outstanding service and dedication.",
-        icon: <FiAward className="w-6 h-6" />,
-      },
-    ],
-  },
-  "uk-london": {
-    name: "London, UK",
-    flag: "/flags/uk.png",
-    timeline: [
-      {
-        date: "2013 - 2017",
-        title: "Close Protection Operative",
-        description:
-          "Provided elite security services for high-profile individuals, managing complex security operations and risk assessment in one of the world's most dynamic cities.",
-        icon: <FiShield className="w-6 h-6" />,
-      },
-      {
-        date: "2015 - 2017",
-        title: "Advanced Security Training",
-        description:
-          "Completed specialized training in executive protection, threat assessment, and advanced security protocols. Developed expertise in managing high-risk situations and VIP security.",
-        icon: <FiUsers className="w-6 h-6" />,
-      },
-    ],
-  },
-};
-
 const TimelineEventCard: React.FC<{ event: TimelineEvent; index: number }> = ({
   event,
   index,
 }) => {
+  const { t } = useI18n();
   return (
     <motion.div
       className="mb-8"
@@ -195,13 +107,13 @@ const TimelineEventCard: React.FC<{ event: TimelineEvent; index: number }> = ({
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <span>Experience</span>
+              <span>{t("country.experience")}</span>
             </div>
             <motion.div
               className="text-blue-600 dark:text-blue-400 font-medium text-sm group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300"
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}>
-              Learn more →
+              {t("country.learnMore")}
             </motion.div>
           </motion.div>
         </div>
@@ -216,10 +128,21 @@ const TimelineEventCard: React.FC<{ event: TimelineEvent; index: number }> = ({
 
 const CountryPage: React.FC = () => {
   const { countryId } = useParams<{ countryId: string }>();
-  const country = countryData[countryId?.toLowerCase() ?? ""];
+  const { t, messages } = useI18n();
+  const id = countryId?.toLowerCase() ?? "";
+  const country = isCountryId(id) ? messages.country.pages[id] : undefined;
+  const icons = countryIcons[id] ?? [];
 
-  const getFlagEmoji = (id: string | undefined, name: string) => {
-    switch (id) {
+  useEffect(() => {
+    if (country) {
+      document.title = `${country.name} — Emanuel Rusu`;
+    } else {
+      document.title = t("meta.titleDefault");
+    }
+  }, [country, t]);
+
+  const getFlagEmoji = (flagId: string | undefined, name: string) => {
+    switch (flagId) {
       case "germany":
         return "🇩🇪";
       case "romania":
@@ -238,7 +161,7 @@ const CountryPage: React.FC = () => {
   if (!country) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <h1 className="text-2xl text-gray-600">Country not found</h1>
+        <h1 className="text-2xl text-gray-600">{t("country.notFound")}</h1>
       </div>
     );
   }
@@ -249,31 +172,22 @@ const CountryPage: React.FC = () => {
         <span
           className="text-4xl"
           aria-hidden>
-          {getFlagEmoji(countryId?.toLowerCase(), country.name)}
+          {getFlagEmoji(id, country.name)}
         </span>
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
           {country.name}
         </h1>
       </div>
 
-      {country.timeline ? (
-        <div className="space-y-6">
-          {country.timeline.map((event, index) => (
-            <TimelineEventCard
-              key={index}
-              event={event}
-              index={index}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="prose dark:prose-invert max-w-none">
-          <h2 className="text-2xl font-semibold mb-4">My Experience</h2>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-            {country.history}
-          </p>
-        </div>
-      )}
+      <div className="space-y-6">
+        {country.events.map((event, index) => (
+          <TimelineEventCard
+            key={index}
+            event={{ ...event, icon: icons[index] }}
+            index={index}
+          />
+        ))}
+      </div>
     </div>
   );
 };

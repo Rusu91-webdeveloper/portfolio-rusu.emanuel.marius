@@ -1,28 +1,29 @@
+import { useI18n } from "../i18n/I18nContext";
+
 export default function Contact() {
+  const { t } = useI18n();
   return (
     <div className="wrap page-content contact-page">
       <header className="page-intro">
         <p className="eyebrow">
-          <span className="section-number">04 /</span> CONTACT
+          <span className="section-number">04 /</span> {t("contact.eyebrow")}
         </p>
         <h1>
-          LET'S
+          {t("contact.headingTop")}
           <br />
-          TALK<span>.</span>
+          {t("contact.headingBottom")}
+          <span>.</span>
         </h1>
-        <p>
-          Have a project in mind, an opportunity to discuss, or just want to say
-          hello? Get in touch.
-        </p>
+        <p>{t("contact.intro")}</p>
         <div className="intro-rule">
-          <span>CHOOSE YOUR CHANNEL</span>
-          <span>REACH OUT ↘</span>
+          <span>{t("contact.choose")}</span>
+          <span>{t("contact.reach")}</span>
         </div>
       </header>
       <div className="contact-options">
         <a href="mailto:rusu.emanuel.webdeveloper@gmail.com">
-          <span>01 / EMAIL</span>
-          <strong>Drop me a line</strong>
+          <span>{t("contact.emailLabel")}</span>
+          <strong>{t("contact.emailStrong")}</strong>
           <small>rusu.emanuel.webdeveloper@gmail.com</small>
           <b>↗</b>
         </a>
@@ -31,9 +32,9 @@ export default function Contact() {
           target="_blank"
           rel="noreferrer"
         >
-          <span>02 / LINKEDIN</span>
-          <strong>Let's connect</strong>
-          <small>Find me on LinkedIn</small>
+          <span>{t("contact.linkedinLabel")}</span>
+          <strong>{t("contact.linkedinStrong")}</strong>
+          <small>{t("contact.linkedinSmall")}</small>
           <b>↗</b>
         </a>
         <a
@@ -41,9 +42,9 @@ export default function Contact() {
           target="_blank"
           rel="noreferrer"
         >
-          <span>03 / GITHUB</span>
-          <strong>See the code</strong>
-          <small>Explore my GitHub profile</small>
+          <span>{t("contact.githubLabel")}</span>
+          <strong>{t("contact.githubStrong")}</strong>
+          <small>{t("contact.githubSmall")}</small>
           <b>↗</b>
         </a>
       </div>

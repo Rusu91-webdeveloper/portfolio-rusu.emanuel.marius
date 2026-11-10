@@ -1,46 +1,39 @@
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nContext";
+
 export default function About() {
+  const { t } = useI18n();
   return (
     <div className="wrap page-content">
       <header className="page-intro">
         <p className="eyebrow">
-          <span className="section-number">02 /</span> ABOUT
+          <span className="section-number">02 /</span> {t("about.eyebrow")}
         </p>
         <h1>
-          A BIT
+          {t("about.headingTop")}
           <br />
-          ABOUT ME<span>.</span>
+          {t("about.headingBottom")}
+          <span>.</span>
         </h1>
-        <p>
-          I'm Emanuel Rusu, a full-stack developer with a background that didn't
-          start in tech.
-        </p>
+        <p>{t("about.intro")}</p>
         <div className="intro-rule">
-          <span>THE PERSON BEHIND THE WORK</span>
-          <span>ROMANIA / EUROPE</span>
+          <span>{t("about.personBehind")}</span>
+          <span>{t("about.location")}</span>
         </div>
       </header>
       <section className="about-layout">
         <div className="about-photo">
           <img src="/resume-photo.jpg" alt="Emanuel Rusu" />
-          <span>EMANUEL RUSU / DEVELOPER</span>
+          <span>{t("about.photoCaption")}</span>
         </div>
         <div className="about-copy">
-          <p className="eyebrow">A DIFFERENT ROUTE INTO TECH</p>
+          <p className="eyebrow">{t("about.routeEyebrow")}</p>
           <h2>
-            Experience travels with you<span>.</span>
+            {t("about.experienceTravels")}
+            <span>.</span>
           </h2>
-          <p>
-            My journey has taken me across Romania, France, the UK and Germany.
-            Working in different environments taught me to adapt, take
-            responsibility, and work with people from different backgrounds.
-          </p>
-          <p>
-            I studied full-stack web development at the Digital Career Institute
-            in Berlin. Today I build across the stack, from the interface
-            someone sees to the functionality behind it, and explore how AI can
-            make products more useful.
-          </p>
+          <p>{t("about.journey")}</p>
+          <p>{t("about.studied")}</p>
           <div className="about-actions">
             <a
               className="text-link"
@@ -48,10 +41,10 @@ export default function About() {
               target="_blank"
               rel="noreferrer"
             >
-              VIEW MY RESUME ↗
+              {t("about.viewResume")}
             </a>
             <a className="text-link" href="#education">
-              EDUCATION &amp; CERTIFICATE ↓
+              {t("about.educationJump")}
             </a>
           </div>
         </div>
@@ -62,28 +55,26 @@ export default function About() {
         aria-labelledby="education-title"
       >
         <div>
-          <p className="eyebrow">EDUCATION / CREDENTIALS</p>
+          <p className="eyebrow">{t("about.educationEyebrow")}</p>
           <h2 id="education-title">
-            Where I learned<span>.</span>
+            {t("about.whereLearned")}
+            <span>.</span>
           </h2>
         </div>
         <div className="education-detail">
-          <p className="education-index">01 / DIGITAL CAREER INSTITUTE</p>
-          <h3>Full-Stack Web Development</h3>
-          <p>
-            Training in the MERN stack, including React, Node.js, Express,
-            MongoDB, and a final team project.
-          </p>
+          <p className="education-index">{t("about.dciIndex")}</p>
+          <h3>{t("about.dciTitle")}</h3>
+          <p>{t("about.dciBody")}</p>
           <a
             className="certificate-link"
             href="/Rusu-Emanuel.certificate.pdf"
             target="_blank"
             rel="noreferrer"
-            aria-label="View DCI training confirmation, PDF (opens in a new tab)"
+            aria-label={t("about.dciCertAria")}
           >
             <span>
-              <strong>DCI training confirmation</strong>
-              <small>PDF · English &amp; German</small>
+              <strong>{t("about.dciCertStrong")}</strong>
+              <small>{t("about.dciCertSmall")}</small>
             </span>
             <span className="certificate-arrow" aria-hidden="true">
               ↗
@@ -93,33 +84,31 @@ export default function About() {
       </section>
       <section className="skills-section">
         <div>
-          <p className="eyebrow">THE TOOLKIT</p>
+          <p className="eyebrow">{t("about.toolkit")}</p>
           <h2>
-            What I work with<span>.</span>
+            {t("about.workWith")}
+            <span>.</span>
           </h2>
         </div>
         <div className="skill-columns">
           <div>
-            <span>01 / FRONTEND</span>
-            <p>React, Next.js, TypeScript, JavaScript, HTML & CSS</p>
+            <span>{t("about.frontend")}</span>
+            <p>{t("about.frontendBody")}</p>
           </div>
           <div>
-            <span>02 / BACKEND</span>
-            <p>Node.js, APIs, authentication and data-driven applications</p>
+            <span>{t("about.backend")}</span>
+            <p>{t("about.backendBody")}</p>
           </div>
           <div>
-            <span>03 / BEYOND</span>
-            <p>
-              AI integration, cloud deployment, problem-solving and
-              collaboration
-            </p>
+            <span>{t("about.beyond")}</span>
+            <p>{t("about.beyondBody")}</p>
           </div>
         </div>
       </section>
       <div className="archive-callout">
-        <p>HAVE A PROJECT IN MIND?</p>
+        <p>{t("about.haveProject")}</p>
         <Link to="/contact">
-          Let's start a conversation <span>↗</span>
+          {t("about.startConversation")} <span>↗</span>
         </Link>
       </div>
     </div>

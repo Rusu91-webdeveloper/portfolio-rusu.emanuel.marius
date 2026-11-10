@@ -149,6 +149,35 @@ button:focus-visible {
 .menu-toggle {
   display: none;
 }
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.lang-switch button {
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  color: #77786f;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] {
+  color: #20211e;
+  border-bottom-color: #d84d29;
+}
+.lang-switch .lang-switch-sep {
+  color: #b9b8af;
+}
+.lang-switch-nav {
+  display: none;
+}
 .home-hero {
   padding-top: 30px;
 }
@@ -922,6 +951,15 @@ button:focus-visible {
   }
   .navigation .nav-contact {
     margin-top: 14px;
+  }
+
+  .lang-switch-nav {
+    display: inline-flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #c2c1b8;
+  }
+  .lang-switch-nav button {
+    padding: 0;
   }
   .home-hero {
     padding-top: 22px;

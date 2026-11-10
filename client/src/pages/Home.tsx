@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import { mvps, vercelProjects } from "../data/showcase";
+import { useI18n } from "../i18n/I18nContext";
+import { isShowcaseName } from "../i18n/translations";
 
 const selected = [...mvps.slice(0, 3), ...vercelProjects];
 
 export default function Home() {
+  const { t, messages } = useI18n();
+  const year = new Date().getFullYear();
   return (
     <>
       <section className="home-hero wrap">
         <div className="hero-meta">
           <span>
-            Independent developer
+            {t("home.independent")}
             <br />
-            Based in Romania
+            {t("home.based")}
           </span>
           <span>
-            Portfolio / {new Date().getFullYear()}
+            {t("home.portfolio", { year })}
             <br />
-            Selected work & ideas
+            {t("home.selected")}
           </span>
         </div>
         <h1 className="hero-name">
@@ -30,34 +34,31 @@ export default function Home() {
             <span className="square-mark" aria-hidden="true">
               ✳
             </span>
-            <p>
-              I build websites and digital products for people with something to
-              put into the world.
-            </p>
+            <p>{t("home.statement")}</p>
             <Link to="/mvp-showcase" className="arrow-link">
-              Explore the work <span>↗</span>
+              {t("home.exploreWork")} <span>↗</span>
             </Link>
           </div>
           <div className="hero-portrait">
             <img src="/resume-photo.jpg" alt="Emanuel Rusu" />
             <span>
-              FULL-STACK DEVELOPER
+              {t("home.role")}
               <br />
               01 / 01
             </span>
           </div>
           <div className="hero-side">
             <span>
-              FROM IDEA
+              {t("home.fromIdea")}
               <br />
-              TO INTERFACE
+              {t("home.toInterface")}
               <br />
-              TO LAUNCH.
+              {t("home.toLaunch")}
             </span>
             <span className="hero-side-arrow" aria-hidden="true">
               ↘
             </span>
-            <span>SCROLL TO EXPLORE</span>
+            <span>{t("home.scroll")}</span>
           </div>
         </div>
       </section>
@@ -65,17 +66,14 @@ export default function Home() {
       <section className="home-work wrap">
         <div className="editorial-heading">
           <div>
-            <p className="eyebrow">01 / SELECTED WORK</p>
+            <p className="eyebrow">{t("home.selectedEyebrow")}</p>
             <h2>
-              Made for
+              {t("home.madeFor")}
               <br />
-              <span>the real world.</span>
+              <span>{t("home.realWorld")}</span>
             </h2>
           </div>
-          <p>
-            Businesses, products, and ideas — each with its own set of problems
-            to solve.
-          </p>
+          <p>{t("home.businesses")}</p>
         </div>
         <div className="work-index">
           {selected.map((project, index) => (
@@ -85,39 +83,39 @@ export default function Home() {
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              aria-label={`Visit ${project.name} (opens in a new tab)`}
+              aria-label={t("home.visitAria", { name: project.name })}
             >
               <span className="work-number">0{index + 1}</span>
               <span className="work-name">{project.name}</span>
-              <span className="work-type">{project.label}</span>
+              <span className="work-type">
+                {isShowcaseName(project.name)
+                  ? messages.showcase.labels[project.name]
+                  : project.label}
+              </span>
               <span className="work-arrow">↗</span>
             </a>
           ))}
         </div>
         <div className="index-footer">
-          <span>AN INDEX OF THINGS I'VE BUILT</span>
+          <span>{t("home.indexNote")}</span>
           <Link to="/mvp-showcase" className="arrow-link">
-            See all work <span>↗</span>
+            {t("home.seeAll")} <span>↗</span>
           </Link>
         </div>
       </section>
 
       <section className="home-note">
         <div className="wrap note-grid">
-          <p className="eyebrow">02 / THE PERSON</p>
+          <p className="eyebrow">{t("home.personEyebrow")}</p>
           <div>
             <h2>
-              Different paths.
+              {t("home.differentPaths")}
               <br />
-              <span>Same curiosity.</span>
+              <span>{t("home.sameCuriosity")}</span>
             </h2>
-            <p>
-              Before development, my work took me across countries and
-              industries. That experience shaped how I approach problems: listen
-              closely, learn fast, and make things useful.
-            </p>
+            <p>{t("home.beforeDev")}</p>
             <Link to="/about" className="arrow-link">
-              More about me <span>↗</span>
+              {t("home.moreAbout")} <span>↗</span>
             </Link>
           </div>
           <span className="note-number" aria-hidden="true">

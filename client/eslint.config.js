@@ -36,7 +36,7 @@ export default [
     },
   },
   {
-    files: ["src/context/ThemeContext.tsx"],
+    files: ["src/context/ThemeContext.tsx", "src/i18n/I18nContext.tsx"],
     rules: { "react-refresh/only-export-components": "off" },
   },
 ];
