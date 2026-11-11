@@ -38,8 +38,7 @@ export default function About() {
             <a
               className="text-link"
               href="/Emanuel-Rusu-CV-2026.pdf"
-              target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               {t("about.viewResume")}
             </a>
@@ -68,8 +67,7 @@ export default function About() {
           <a
             className="certificate-link"
             href="/Rusu-Emanuel.certificate.pdf"
-            target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={t("about.dciCertAria")}
           >
             <span>

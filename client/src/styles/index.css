@@ -550,6 +550,7 @@ button:focus-visible {
   border-bottom: 1px solid #20211e;
   padding-bottom: 9px;
   margin-top: auto;
+  cursor: pointer;
 }
 .text-link span {
   padding-left: 25px;
@@ -1238,6 +1239,7 @@ button:focus-visible {
   background: #20211e;
   color: #f1ede3;
   transition: background 0.2s;
+  cursor: pointer;
 }
 .certificate-link:hover {
   background: #aa3d22;
